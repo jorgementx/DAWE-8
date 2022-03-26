@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HTML5 File Drag & Drop API</title>
+<link rel="stylesheet" type="text/css" media="all" href="filedrag.css" />
+</head>
+<body>
+
+<form id="upload" onsubmit="return false" method="POST"
+enctype="multipart/form-data">
+<fieldset>
+   <legend>Datos del cliente</legend>
+
+   <label for="nombre">Nombre:</label>
+   <input type="text" style="width:25%" id="nombre" name="nombre" placeholder="Introduce tu nombre" autofocus required pattern="[a-z]{1,15}" title="formato incorrecto"/><br><br>
+   <label for="telefono">Teléfono:</label>
+   <input type="tel" style="width:25%" id="telefono" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="Patrón: 123-456-789" required /><br><br>
+   <label for="mail">E-mail:</label>
+   <input type="email" style="width:50%" id="email" name="email" placeholder="Introduce tu dirección de correo electrónico" required />
+
+</fieldset>
+
+<fieldset>
+   <legend>Libros</legend>
+   <select name="libros" id="libros" style="width:30%;" required>
+      <option style="display:none">
+      <option value="Libro1">Libro1</option>
+      <option value="Libro2">Libro2</option>
+      <option value="Libro3">Libro3</option>
+      <option value="Libro4">Libro4</option>
+      <option value="Libro5">Libro5</option>
+   </select>
+   <label for="numero">Cantidad (Máx.5):</label>
+   <input type="number" id="number" name="number" min="1" max="5" step="1" required />
+</fieldset>
+
+<fieldset>
+   <legend>File Upload</legend>
+      <div>
+         <label for="fileselect">Elige los ficheros a subir:</label>
+         <input type="file" id="fileselect" name="fileselect" multiple />
+         <div id="filedrag">Arrastra aquí tus ficheros</div>
+      </div>
+</fieldset>
+   
+<input type="submit" id="enviar" value="Enviar">
+</form>
+<div id="messages"><p>Mensajes de estado</p></div>
+<div id="messages2"></div>
+<script src="filedrag.js"></script>
+</body>
+</html>
